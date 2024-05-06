@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# git config 检查
+sh scripts/check-git-config.sh
+
+echo 'running pre-commit checks ...'
+
+npx lint-staged -q
+
+echo 'running pre-commit workflow ...'
+
+echo -e 'pre-commit success!\n'
